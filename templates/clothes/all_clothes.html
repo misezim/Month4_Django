@@ -1,0 +1,21 @@
+{% load static %}
+{% include 'components/header.html' %}
+<link rel="stylesheet" href="{% static 'css/hashtags.css' %}">
+<div class="container">
+    <div class="buttons">
+        <button class="btn"><a href="{% url 'kids_clothes' %}">Детская одежда</a></button>
+        <button class="btn"><a href="{% url 'teens_clothes' %}">Одежда для подростковая</a></button>
+        <button class="btn"><a href="{% url 'adults_clothes' %}">Ожеда для взрослых</a></button>
+    </div>
+
+
+   {% for i in all_clothes %}
+    <div class="content">
+        <p class="white">{{ i.title }}</p>
+      <hr class="white">
+        <p class="white">{{ i.price }}</p>
+    </div>
+  {% endfor %}
+</div>
+
+{% include 'components/header.html' %}

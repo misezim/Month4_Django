@@ -1,0 +1,15 @@
+{% load static %}
+{% include 'components/header.html' %}
+<link rel="stylesheet" href="{% static 'css/hashtags.css' %}">
+<div class="container">
+
+   {% for i in teens_clothes %}
+    <div class="content">
+        <p class="white">{{ i.title }}</p>
+      <hr class="white">
+        <p class="white">{{ i.price }}</p>
+    </div>
+  {% endfor %}
+</div>
+
+{% include 'components/header.html' %}

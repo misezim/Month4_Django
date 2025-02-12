@@ -54,7 +54,7 @@
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
                 <button class="btn btn-outline-success" type="submit" style="color: yellow; border-color: yellow;">
-                    Поиск
+
                 </button>
             </form>
         </div>
@@ -81,12 +81,18 @@
 
     <!-- Блок для комментариев -->
     <div class="comment-section">
+        <div class="comment">
+        <div class="buttons">
+            <button class="btn"><a>Оставьте комментарий</a></button>
+        </div>
+    {% for i in book_id.books.all %}
+    <div class="comment-section">
         <h5>Комментарии</h5>
         <div class="comment">
-            <p> (2024-09-24): Отличная книга! Рекомендую! <strong>Оценка:</strong> 5</p>
+            <p> {{ i.created_at }}: {{ i.review_text }} <strong>Оценка:</strong> {{ i.stars }}</p>
         </div>
-     
     </div>
+    {% endfor %}
 </div>
 
 <!-- Футер -->

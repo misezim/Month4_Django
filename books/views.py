@@ -24,6 +24,8 @@ def book_detail_view(request, id):
                       context=context_object_name)
 
 
+
+
 def about_me(request):
     if request.method == 'GET':
         return HttpResponse('<h1>Добро пожаловать в онлайн-библиотеку!<h1>'
