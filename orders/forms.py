@@ -1,7 +1,7 @@
 from django import forms
 from . import models
 
-class CreateBookReviewForm(forms.ModelForm):
+class BasketForm(forms.ModelForm):
     class Meta:
-        model = models.Review
+        model = models.BasketModel
         fields = '__all__'

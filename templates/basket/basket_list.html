@@ -1,0 +1,18 @@
+{% include 'components/header.html' %}
+<h1 class="text-white">Список покупок</h1>
+<ul>
+  {% for i in basket_list %}
+  <li>
+    <p class="text-white">{{ i.choice_book }}</p>
+    <p class="text-white">{{ i.choice_status }}</p>
+    <p class="text-white" >{{ i.created_at }}</p>
+    <p class="text-white">{{ i.address }}</p>
+    <p class="text-white">{{ i.order_comments }}</p>
+      <a href="/basket_list/{{ i.id }}/delete/" class="btn btn-primary">Удалить</a>
+      <a href="/basket_list/{{ i.id }}/update/" class="btn btn-primary">Редактировать</a>
+  </li>
+  {% endfor %}
+</ul>
+
+
+{% include 'components/footer.html' %}

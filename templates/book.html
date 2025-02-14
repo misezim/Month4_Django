@@ -3,6 +3,9 @@
 <div class="container mt-4 content">
     <div class="row justify-content-center">
         <!-- Пример карточки книги -->
+        <p>
+        <div><a href="{% url 'create_review' %}"  class="btn btn-primary">Оставить отзыв</a></div>
+        </p>
         {% for i in book %}
         <div class="col-md-4 mb-4">
             <div class="card" style="width: 100%;">
@@ -11,6 +14,7 @@
                     <h5 class="card-title">{{ i.title }}</h5>
                     <p class="card-text">{{ i.created_at }}</p>
                     <a href="/book_detail/{{i.id}}/" class="btn btn-primary">Подробнее</a>
+
                 </div>
             </div>
         </div>
@@ -20,4 +24,4 @@
 </div>
 
 <!-- Футер -->
-{% include 'components/header.html' %}
+{% include 'components/footer.html' %}

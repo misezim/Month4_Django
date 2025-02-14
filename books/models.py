@@ -47,10 +47,3 @@ class Review(models.Model):
     class Meta:
         verbose_name = 'отзыв'
         verbose_name_plural = 'отзывы'
-
-# class Comment(models.Model):
-#     choice_book = models.ForeignKey(BookModel, on_delete=models.CASCADE, related_name='comments')
-#     comment_text = models.TextField(verbose_name='Оставьте комментарий')
-#     created_at = models.DateField(auto_now_add=True)
-#     def __str__(self):
-#         return self.comment_text
