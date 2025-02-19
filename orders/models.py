@@ -16,3 +16,7 @@ class BasketModel(models.Model):
 
     def __str__(self):
         return self.choice_status
+
+    class Meta:
+        verbose_name = 'Заказ'
+        verbose_name_plural = 'Заказы'

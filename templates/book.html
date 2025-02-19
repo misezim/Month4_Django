@@ -6,7 +6,7 @@
         <p>
         <div><a href="{% url 'create_review' %}"  class="btn btn-primary">Оставить отзыв</a></div>
         </p>
-        {% for i in book %}
+        {% for i in object_list %}
         <div class="col-md-4 mb-4">
             <div class="card" style="width: 100%;">
                 <img src="{{ i.image.url }}" class="card-img-top" alt="Обложка книги">
