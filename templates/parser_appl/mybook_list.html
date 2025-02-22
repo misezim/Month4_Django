@@ -1,0 +1,11 @@
+{% include 'components/header.html' %}
+<h1 class="text-white">Фильмы с сайта <a href="https://books.yandex.ru/library/t-shkolnaya-programma-ru/s-9-klass">https://books.yandex.ru/library/t-shkolnaya-programma-ru/s-9-klass</a></h1>
+<ul>
+    {% for i in mybook %}
+    <li>
+        <h1 class="text-white">{{ i.title }}</h1>
+        <img src="{{ i.image }}" alt="Image">
+    </li>
+    {% endfor %}
+</ul>
+{% include 'components/footer.html' %}

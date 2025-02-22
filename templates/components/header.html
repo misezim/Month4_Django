@@ -47,8 +47,21 @@
                 <li class="nav-item">
                     <a class="nav-link enable" href="#" style="color: yellow;">Регистрация</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link enable" href="#" style="color: yellow;">Другие книги</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false" style="color: yellow;">
+                        Другие книги
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'mybook_list' %}">Яндекс книги</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="{% url 'rezka_list' %}">Rezka фильмы</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        <li><a class="dropdown-item" href="{% url 'parser' %}" style="color: #387dd8;">Начать парсинг</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link enable" href="#" style="color: yellow;">Итоговая Контрольная работа</a>
