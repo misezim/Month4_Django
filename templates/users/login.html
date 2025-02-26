@@ -1,0 +1,9 @@
+{% include 'components/header.html' %}
+<h1 class="text-white">Авторизация</h1>
+<form method="POST" enctype="application/x-www-form-urlencoded">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Авторизация</button>
+    <button type="reset" class="btn btn-primary">Очистить</button>
+</form>
+{% include 'components/footer.html' %}

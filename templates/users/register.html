@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 class="text-white">Регистрация</h1>
+    <form method="POST" enctype="application/x-www-form-urlencoded">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Регистрация</button>
+    <button type="reset" class="btn btn-primary">Очистить</button>
+    </form>
+</body>
+</html>

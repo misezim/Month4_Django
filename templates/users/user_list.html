@@ -1,0 +1,21 @@
+{% include 'components/header.html' %}
+<h1 class="text-white">Добро пожаловать</h1>
+    <ol>
+        {% for i in person %}
+        <li>
+            <p class="text-white">{{ i.username }}</p>
+            <p class="text-white">{{ i.experience }}</p>
+            {% if i.salary %}
+            <p class="text-white">{{ i.salary }}</p>
+            {% else %}
+            <p class="text-white">Ставка не определена</p>
+            {%endif%}
+        </li>
+        {% endfor %}
+    </ol>
+
+<form action="{% url 'users:login' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">Выйти из аккаунта</button>
+</form>
+{% include 'components/footer.html' %}
