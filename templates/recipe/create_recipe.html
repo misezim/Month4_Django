@@ -1,0 +1,9 @@
+{% include 'components/header.html' %}
+<h1>Добавить Рецепт</h1>
+<form action="/create_recipe/" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-primary">Добавить Рецепт</button>
+  <button type="reset" class="btn btn-primary">Очистить форму</button>
+</form>
+{% include 'components/footer.html' %}

@@ -1,0 +1,9 @@
+{% include 'components/header.html' %}
+<h1>Удалить рецепт?</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">Да</button>
+    <a href="{% url 'recipe_list' %}" class="btn btn-primary">Нет</a>
+</form>
+{% include 'components/footer.html' %}

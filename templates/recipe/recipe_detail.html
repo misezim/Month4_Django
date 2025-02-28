@@ -1,0 +1,9 @@
+{% include 'components/header.html' %}
+<h1>Ингредиенты</h1>
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <p class="text-white">{{ i.description }}</p>
+  <button href="/create_detail/{{i.recipe_id}}/" class="btn btn-primary">Внести Ингредиенты</button>
+</form>
+{% include 'components/footer.html' %}

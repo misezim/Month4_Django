@@ -1,0 +1,12 @@
+{% include 'components/header.html' %}
+<h1 class="text-white">Список Рецептов</h1>
+<ul>
+  {% for i in recipe_list %}
+  <li>
+    <p class="text-white">{{ i.title }}</p>
+      <a href="/recipe_list/{{ i.id }}/delete/" class="btn btn-primary">Удалить</a>
+      <a href="/recipe_detail/{{i.id}}/" class="btn btn-primary">Просмотреть</a>
+  </li>
+  {% endfor %}
+</ul>
+{% include 'components/footer.html' %}

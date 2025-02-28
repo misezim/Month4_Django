@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import get_object_or_404
 from . import models, forms
 from django.views import generic
 from django.views.decorators.cache import cache_page

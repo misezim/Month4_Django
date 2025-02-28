@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'orders',
     'parser_appl',
     'users',
+    'recipe'
 ]
 
 MIDDLEWARE = [
