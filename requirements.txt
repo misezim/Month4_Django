@@ -5,6 +5,7 @@ charset-normalizer==3.4.1
 Django==5.1.5
 idna==3.10
 pillow==11.1.0
+python-dotenv==1.0.1
 requests==2.32.3
 soupsieve==2.6
 sqlparse==0.5.3

@@ -1,15 +1,25 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from . import models, forms
 from django.views import generic
+from django.views.decorators.cache import cache_page
+from django.utils.decorators import method_decorator
+from django.core.cache import cache
+
 
 #<<<--------------------Список-------------------->>>
+@method_decorator(cache_page(60*15), name='dispatch')
 class BasketListView(generic.ListView):
     template_name = 'basket/basket_list.html'
     context_object_name = 'basket_list'
     model = models.BasketModel
 
     def get_queryset(self):
-        return self.model.objects.all().order_by('-id')
+        # return self.model.objects.all().order_by('-id')-----> Переписываем
+        basket = cache.get('basket')
+        if not basket:
+            basket = self.model.objects.all().order_by('-id')
+            cache.set('basket', basket, 60 * 15)
+        return basket
 
 # def basket_list_view(request):
 #     if request.method == 'GET':
@@ -30,9 +40,9 @@ class CreateOrderView(generic.CreateView):
     success_url = '/basket_list/'
 
     def form_valid(self, form):
-        print(form.cleaned_data)
-        return super(CreateOrderView, self).form_valid(form=form)
-
+        response = super(CreateOrderView, self).form_valid(form=form)
+        cache.delete('basket')
+        return response
 
 # def add_order(request):
 #     if request.method == 'POST':
@@ -56,6 +66,13 @@ class DeleteOrderView(generic.DeleteView):
         order_id = self.kwargs.get('id')
         return get_object_or_404(models.BasketModel, id=order_id)
 
+    def delete(self, request, *args, **kwargs):
+        obj = self.get_object()
+        obj.delete()
+        cache.delete('basket')
+        return super().delete(request, *args, **kwargs)
+
+
 #
 # def delete_order(request, id):
 #     order_id = get_object_or_404(models.BasketModel, id = id)
@@ -75,8 +92,9 @@ class UpdateOrderView(generic.UpdateView):
         return get_object_or_404(models.BasketModel, id= order_id)
 
     def form_valid(self, form):
-        print(form.cleaned_data)
-        return super(UpdateOrderView, self).form_valid(form=form)
+        response = super(UpdateOrderView, self).form_valid(form=form)
+        cache.delete('basket')
+        return response
 
 
 # def update_order(request, id):
